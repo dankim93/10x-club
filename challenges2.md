@@ -75,4 +75,25 @@ function pair_sum(arr, k) {
   return answer;
 }
 ```
-Time Complexity: O(n) checking inside set is O(1)
+Time complexity: O(n) checking inside set is O(1)
+
+
+# productify
+
+#### Given a list of numbers in an array, replace all the numbers with the product of all other numbers. Do this in O(n) time
+
+#### Example input/output
+
+> productify([1,2,3]) => [6, 3, 2]
+
+```JavaScript
+function productify(arr) {
+  let sum = arr.reduce(function(acc, val) { return acc * val; });
+  for(let i = 0; i < arr.length; i++) {
+    arr[i] = sum / arr[i];
+  }
+
+  return arr;
+}
+```
+Time complexity: O(n)
