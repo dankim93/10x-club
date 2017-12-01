@@ -21,3 +21,25 @@ function digital_root(num) {
   return digital_root(sum);
 }
 ```
+
+# fibs
+
+#### Write a function, fibs(num) which returns an array of the first n elements from the fibonnacci sequence, given n.
+
+#### Example input/output
+
+> fibs(4) // = [1,1,2,3]
+> fibs(0) // = []
+> fibs(8) // = [1,1,2,3,5,8,13,21]
+
+```JavaScript
+function fib(n) {
+  let fibs = [1, 1];
+  if (n < 2) { return fibs.slice(0, n+1); }
+
+  fibs = fib(n - 1);
+  fibs = fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+
+  return fibs;
+}
+```
