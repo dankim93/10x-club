@@ -43,3 +43,36 @@ function fib(n) {
   return fibs;
 }
 ```
+
+# pair_sum
+
+#### Given an array of integers, return all pairs that sum up to a specified value k. List the pairs in [min, max] order.
+
+#### Example input/output
+
+> pair_sum([1, 2, -1], 0) // = [ [-1, 1] ]
+> pair_sum([1, 2, -1, -1], 0) // = [ [-1, 1] ]
+> pair_sum([1, 2, -1, -1, -2], 0) // = [ [-1, 1], [-2, 2] ]
+> pair_sum([1, 2, -1, -1, -2], 1) // = [ [-1, 2] ]
+> pair_sum([1, 2, -1, -1, -2], -1) // = [ [-2, 1] ]
+
+```JavaScript
+function pair_sum(arr, k) {
+  let set = new Set();
+  let answer = new Set();
+
+  for(let i = 0; i < arr.length; i++) {
+    if(set.has(k - arr[i])) {
+      if((k-arr[i]) > arr[i]){
+        answer.add([arr[i], k - arr[i]]);
+      } else {
+        answer.add([k - arr[i], arr[i]]);
+      }
+    }
+    set.add(arr[i]);
+  }
+
+  return answer;
+}
+```
+Time Complexity: O(n) checking inside set is O(1)
