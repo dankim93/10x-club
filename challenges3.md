@@ -29,18 +29,20 @@ function rand7() {
 
 ```JavaScript
 function move_zeros(arr) {
-  let position = arr.length - 1;
-
+  let pos = arr.length - 1;
   for(let i = 0; i < arr.length; i++) {
     if(arr[i] === 0) {
-      while(arr[position] === 0) {
-        position -= 1;
+      while(arr[pos] === 0) {
+        if(i === pos) { return arr; }
+        pos -= 1;
       }
-      arr[i] = arr[position];
-      arr[position] = 0;
+      arr[i] = arr[pos];
+      arr[pos] = 0;
     }
   }
 
   return arr;
 }
 ```
+Time complexity: O(n) <br>
+Space complexity: O(1)
