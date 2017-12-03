@@ -1,3 +1,4 @@
+# rand7
 #### Given a method rand5 which generates random integer (0..4) uniformly, write a method rand7 which generates random integer (0..6) uniformly
 
 #### Example input/output
@@ -20,7 +21,7 @@ function rand7() {
   }
 }
 ```
-
+# move_zeros
 #### Given an array, move all zeros to the end. The order of non-zero elements does not matter. Algorithm should be O(n); use O(1) extra space.
 
 #### Example input/output
@@ -46,3 +47,25 @@ function move_zeros(arr) {
 ```
 Time complexity: O(n) <br>
 Space complexity: O(1)
+
+# binary
+#### Write a function that takes an integer and returns it in binary form.
+
+#### Example input/output
+
+> binary(10) // = 1010
+> binary(0) // = 0
+> binary(666) // = 1010011010
+
+```JavaScript
+function toBinary(int) {
+  let binary = [];
+
+  while (int > 0) {
+    binary.unshift(int % 2);
+    int = Math.floor(int/2);
+  }
+
+  return binary.join("");
+}
+```
