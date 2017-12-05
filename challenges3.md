@@ -69,3 +69,32 @@ function toBinary(int) {
   return binary.join("");
 }
 ```
+
+# permutations
+#### Write a method that takes an array and returns all its permutations. Time/memory complexity should be proportional to the number of permutations.
+
+#### Example input/output
+
+>permutations([1,2,3])
+>=> [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+
+```JavaScript
+function permutations(arr) {
+  if (arr.length == 0) {
+    return [arr];
+  }
+
+  let perms = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let n = arr[i];
+    let rest = arr.slice(0, i).concat(arr.slice(i+1, arr.length));
+    let newPerms = permutations(rest).map(function(perm) {
+      perm.unshift(n);
+      return perm;
+    });
+    perms = perms.concat(newPerms);
+  }
+  return perms;
+}
+```
